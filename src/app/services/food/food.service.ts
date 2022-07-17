@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Foods } from 'src/app/shared/models/food';
+import { Tag } from 'src/app/shared/models/Tag';
 @Injectable({
   providedIn: 'root'
 })
@@ -7,14 +8,39 @@ export class FoodService {
 
 
   constructor() { }
-  getAllFoodByTag(tag: string): Foods[] {
-    if (tag == 'All')
-      return this.getAll()
-    else
-      return this.getAll().filter(food => food.tags?.includes(tag));
-    //you can right
+
+  getFoodById(id: number): Foods {
+    return this.getAll().find(food => food.id == id)!;
+
   }
 
+
+
+
+
+
+  getAllFoodByTag(tag: string): Foods[] {
+    return tag == "All" ?
+      this.getAll() : this.getAll().filter(food => food.tags?.includes(tag));
+
+  }
+
+  // getAllTag in food services 
+
+  getAllTag(): Tag[] {
+    return [
+      { name: 'All', count: 8 },
+      { name: 'FastFood', count: 5 },
+      { name: 'Pizza', count: 3 },
+      { name: 'Lunch', count: 4 },
+      { name: 'SlowFood', count: 3 },
+      { name: 'Hamburger', count: 5 },
+      { name: 'Fray', count: 1 },
+      { name: 'Soup', count: 0 }
+
+
+    ];
+  }
 
 
   getAll(): Foods[] {
@@ -28,7 +54,7 @@ export class FoodService {
         origins: ['italy'],
         star: 4.2,
         imageUrl: '../assets/5.jpg',
-        tags: ['slowFood', 'Soup'],
+        tags: ['SlowFood', 'Pizza'],
       },
       {
         id: 2,
@@ -39,7 +65,7 @@ export class FoodService {
         origins: ['germany'],
         star: 3.0,
         imageUrl: '../assets/12.jpg',
-        tags: ['slowFood', 'Soup'],
+        tags: ['FastFood', 'Hamburger', 'Lunch'],
       },
       {
         id: 3,
@@ -50,7 +76,7 @@ export class FoodService {
         origins: ['spain'],
         star: 4.0,
         imageUrl: '../assets/7.jpg',
-        tags: ['slowFood', 'Soup'],
+        tags: ['SlowFood', 'Pizza'],
       },
       {
         id: 4,
@@ -61,7 +87,7 @@ export class FoodService {
         origins: ['american'],
         star: 4.0,
         imageUrl: '../assets/11.jpg',
-        tags: ['slowFood', 'Soup'],
+        tags: ['FastFood', 'Hamburger', 'Lunch'],
       },
       {
         id: 5,
@@ -72,7 +98,7 @@ export class FoodService {
         origins: ['italy'],
         star: 5.0,
         imageUrl: '../assets/9.jpg',
-        tags: ['slowFood', 'Soup'],
+        tags: ['FastFood', 'Hamburger', 'Fray'],
       },
       {
         id: 6,
@@ -83,7 +109,7 @@ export class FoodService {
         origins: ['italy'],
         star: 4.0,
         imageUrl: '../assets/10.jpg',
-        tags: ['slowFood', 'Soup'],
+        tags: ['FastFood', 'Hamburger', 'Lunch'],
       },
       {
         id: 7,
@@ -94,7 +120,7 @@ export class FoodService {
         origins: ['italy'],
         star: 1.0,
         imageUrl: '../assets/3.jpg',
-        tags: ['slowFood', 'Soup'],
+        tags: ['SlowFood', 'Pizza'],
       },
       {
         id: 8,
@@ -105,7 +131,7 @@ export class FoodService {
         origins: ['italy'],
         star: 2.5,
         imageUrl: '../assets/8.jpg',
-        tags: ['slowFood', 'Soup'],
+        tags: ['FastFood', 'Hamburger', 'Lunch'],
       },
 
     ]
