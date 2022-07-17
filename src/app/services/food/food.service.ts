@@ -5,9 +5,19 @@ import { Foods } from 'src/app/shared/models/food';
 })
 export class FoodService {
 
-  constructor() { }
 
-  getAll() {
+  constructor() { }
+  getAllFoodByTag(tag: string): Foods[] {
+    if (tag == 'All')
+      return this.getAll()
+    else
+      return this.getAll().filter(food => food.tags?.includes(tag));
+    //you can right
+  }
+
+
+
+  getAll(): Foods[] {
     return [
       {
         id: 1,
@@ -16,7 +26,7 @@ export class FoodService {
         cookTime: '10-20',
         favorite: false,
         origins: ['italy'],
-        star: 4.0,
+        star: 4.2,
         imageUrl: '../assets/5.jpg',
         tags: ['slowFood', 'Soup'],
       },
@@ -58,7 +68,7 @@ export class FoodService {
         name: 'Menu Burger',
         price: 15,
         cookTime: '10-20',
-        favorite: false,
+        favorite: true,
         origins: ['italy'],
         star: 5.0,
         imageUrl: '../assets/9.jpg',
@@ -93,7 +103,7 @@ export class FoodService {
         cookTime: '10-20',
         favorite: false,
         origins: ['italy'],
-        star: 2.0,
+        star: 2.5,
         imageUrl: '../assets/8.jpg',
         tags: ['slowFood', 'Soup'],
       },

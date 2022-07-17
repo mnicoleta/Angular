@@ -3,7 +3,10 @@ import { RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from './home/home.component';
 
 const routes: Routes = [
-  { path: '', component: HomeComponent }
+  { path: '', component: HomeComponent },
+  { path: 'search/:searchItem', component: HomeComponent }, //adding search route in the app
+  { path: 'tag/:tag', component: HomeComponent }
+
 ];
 
 @NgModule({
