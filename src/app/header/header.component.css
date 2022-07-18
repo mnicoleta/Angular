@@ -1,17 +1,19 @@
 header {
-    background-color: white;
+
     padding: 0;
-    border-bottom: 1px solid #61e880;
+
 
 }
 
 a {
-    color: #0ca830;
+    color: green;
+    font-weight: bold;
+    font-size: 2rem;
 }
 
 a:hover {
-    background-color: #0ad555;
-    color: white;
+
+    opacity: 1;
 }
 
 .container {

@@ -2,14 +2,20 @@ div {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
+    border-bottom: 1px solid #e72929;
+    ;
 
 }
 
 div a {
-    background-color: #c3c2c2;
+    background-color: #e72929;
     padding: .3rem 1rem;
-    margin: .2rem .15rem;
-    border-radius: 0.4rem;
-    color: blue;
+    margin: 1rem .15rem;
+    border-radius: 4rem;
+    color: whitesmoke;
     font-weight: 600;
+    opacity: 0.9;
+    margin-bottom: 2rem;
+
+
 }
